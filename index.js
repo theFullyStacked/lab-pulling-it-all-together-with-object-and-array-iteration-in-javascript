@@ -114,3 +114,29 @@ function gameObject() {
         },
     };
 }
+// gameObject();
+
+
+// player info
+function numPointsScored(playerName){}
+function shoeSize(playerName){}
+
+// team info
+function teamColors(teamName){}
+function teamNames(){}
+
+// player number and stats
+function playerNumbers(teamName){}
+function playerStats(playerName){}
+
+// advanced challenge
+function bigShoeRebounds(){}
+
+// bonus qns
+function mostPointsScored(){}
+function winningTeam(){} 
+function playerWithLongestName(){}
+
+// super bonus challenge
+function doesLongNameStealATon(){}
+//Returns true if the player with the longest name has the most steals.
