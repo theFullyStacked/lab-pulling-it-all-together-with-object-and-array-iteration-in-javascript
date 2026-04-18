@@ -200,21 +200,63 @@ function bigShoeRebounds() {
 
 
 // bonus qns
-function mostPointsScored() {}
+function mostPointsScored() {
+    let top=0;
+    let mvp;
+    for(let key of Object.values(game)){
+        for(let player of Object.values(key.players)){
+            if(player.points>top){
+                top=player.points;
+                mvp=player;
+            }else{console.log(key[player]);}
+        }
+    }
+    return mvp;
+}
+// console.log(mostPointsScored());
 
 function winningTeam() {}
+// console.log(winningTeam());
 
-function playerWithLongestName() {}
-
+function playerWithLongestName() {
+    let len=0;
+    let name;
+    for (let key of Object.values(game)) {
+        for(let player of Object.keys(key.players)){
+            if(player.length>len){
+                len=player.length;
+                name=player;
+            }
+        }
+    }
+    return name;
+}
 
 
 // super bonus challenge
-function doesLongNameStealATon() {}
-//Returns true if the player with the longest name has the most steals.
-
-
-
-
-
-
-console.log(teamColors('Charlotte Hornets'))
+function doesLongNameStealATon() {
+    let name=playerWithLongestName();   
+    let stolen; 
+    let stealer;
+    let highest=0;
+    for (let key of Object.values(game)) {
+        if (key.players[name]) {
+            stolen=key.players[name].steals;
+            console.log(stolen);
+        }
+        for(let player of Object.values(key.players)){
+            if(player.steals>highest){
+                highest=player.steals;
+            }
+        }
+    }
+    console.log(highest);
+    if(stolen==highest){
+        stealer=true;
+    }else{
+        stealer=false;
+    }
+    
+    return stealer;
+}
+console.log(doesLongNameStealATon());
