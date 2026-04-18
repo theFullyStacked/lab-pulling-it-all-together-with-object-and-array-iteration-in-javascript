@@ -114,29 +114,107 @@ function gameObject() {
         },
     };
 }
-// gameObject();
+
+
+
+const game = gameObject();
+
 
 
 // player info
-function numPointsScored(playerName){}
-function shoeSize(playerName){}
+function numPointsScored(playerName) {
+    for (let key of Object.values(game)) {
+        if (key.players[playerName]) {
+            return key.players[playerName].points;
+        }
+    }
+}
+
+function shoeSize(playerName) {
+    for (let key of Object.values(game)) {
+        if (key.players[playerName]) {
+            return key.players[playerName].shoe;
+        }
+    }
+}
+
+
 
 // team info
-function teamColors(teamName){}
-function teamNames(){}
+function teamColors(teamName) {
+    for (let key of Object.values(game)) {
+        if (teamName == key.teamName){
+            return key.colors;
+        }
+    }
+}
+
+function teamNames() {
+    let names = [];
+    for (let key of Object.values(game)) {
+        names.push(key.teamName);
+    }
+    return names;
+}
+
 
 // player number and stats
-function playerNumbers(teamName){}
-function playerStats(playerName){}
+function playerNumbers(teamName) {
+    let numbers = [];
+    for (let key of Object.values(game)) {
+        if (teamName == key.teamName) {
+            for (let player of Object.values(key.players)) {
+                numbers.push(player.number);
+            }
+        }
+    }
+    return numbers;
+}
+
+function playerStats(playerName) {
+    let stats = {};
+    for (let key of Object.values(game)) {
+        if (key.players[playerName]) {
+            return key.players[playerName];
+        }
+    }
+}
+
+
 
 // advanced challenge
-function bigShoeRebounds(){}
+function bigShoeRebounds() {
+    let size=0;
+    let rebound;
+    for(let key of Object.values(game)){
+        for(let player of Object.values(key.players)){
+            if(player.shoe>size){
+                size=player.shoe;
+                rebound=player.rebounds;
+            }
+        }
+    }
+    return rebound;
+}
+
+
 
 // bonus qns
-function mostPointsScored(){}
-function winningTeam(){} 
-function playerWithLongestName(){}
+function mostPointsScored() {}
+
+function winningTeam() {}
+
+function playerWithLongestName() {}
+
+
 
 // super bonus challenge
-function doesLongNameStealATon(){}
+function doesLongNameStealATon() {}
 //Returns true if the player with the longest name has the most steals.
+
+
+
+
+
+
+console.log(teamColors('Charlotte Hornets'))
